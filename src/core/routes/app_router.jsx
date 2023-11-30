@@ -1,14 +1,19 @@
 import { createBrowserRouter } from "react-router-dom";
 import HomeView from "../../features/home/views/HomeView";
 import LoginView from "../../features/login/views/LoginView";
+import PirvateRoute from "../auth/components/private_route";
 
 export const appRouter = createBrowserRouter([
   {
     path: "/",
-    Component: HomeView,
+    element: (
+      <PirvateRoute>
+        <HomeView />
+      </PirvateRoute>
+    ),
   },
   {
     path: "/login",
-    Component: LoginView,
+    element: <LoginView />,
   },
 ]);

@@ -14,15 +14,20 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const initAuth = async () => {
-      const loginState = getLoginState();
-      if (!loginState) return;
-      setIsLoggedIn(loginState);
+      try {
+        const loginState = await getLoginState();
+        if (!loginState) return;
+        setIsLoggedIn(loginState);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setIsLoggedIn(false);
+      }
     };
-
     initAuth();
   }, []);
 
-  const login = async () => {
+  const login = async (email, password) => {
     setIsLoggedIn(true);
     saveLoginState(true);
   };

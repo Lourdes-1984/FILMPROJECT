@@ -11,7 +11,7 @@ export const AppSwiper = ({ children }) => {
       loop
       slides-per-view="3"
       navigation="true"
-      pagination="true"
+      // pagination="true"
     >
       {children}
     </swiper-container>

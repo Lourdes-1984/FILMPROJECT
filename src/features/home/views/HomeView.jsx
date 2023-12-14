@@ -6,8 +6,11 @@ import AppSwiperSlide from "../../../core/components/app_swiper/components/app_s
 import {
   getPopularMovies,
   getTopRatedMovies,
+  getUpcomingMovies,
 } from "../services/movies.services";
 import useSWR from "swr";
+import AppCarouselSection from "../../../core/components/app_carousel_section/app_carousel_section";
+import AppCard from "../../../core/components/app_card/app_card";
 
 const HomeView = () => {
   const {
@@ -22,6 +25,12 @@ const HomeView = () => {
     isLoading: topRatedMoviesIsLoading,
   } = useSWR("getTopRatedMovies", getTopRatedMovies);
 
+  const {
+    data: upComingMovies,
+    error: upComingMoviesError,
+    isLoading: upComingMoviesIsLoading,
+  } = useSWR("getUpcomingMovies", getUpcomingMovies);
+
   const { logout, isLoggedIn } = useAuth();
 
   const getUser = () => {
@@ -34,48 +43,16 @@ const HomeView = () => {
 
       <button onClick={logout}>Cerrar Sesión</button>
       <AppButton onClick={getUser}>Mostrar alerta</AppButton>
-      <h2>Peliculas mas vistas</h2>
-      <AppSwiper>
-        {popularMovies?.map((e, index) => (
-          <AppSwiperSlide key={index}>
-            <div
-              style={{
-                height: "150px",
-                width: "250px",
-                // backgroundColor: "red",
-                backgroundImage: `url(${e.backdrop})`,
-                backgroundSize: "contain",
-                backgroundRepeat: "no-repeat",
-                backgroundPosition: "center",
-                padding: "20px",
-              }}
-            >
-              <h3>{e.title}</h3>
-            </div>
-          </AppSwiperSlide>
-        ))}
-      </AppSwiper>
-      <h2>Peliculas mas vistas</h2>
-      <AppSwiper>
-        {topRatedMovies?.map((e, index) => (
-          <AppSwiperSlide key={index}>
-            <div
-              style={{
-                height: "150px",
-                width: "250px",
-                // backgroundColor: "red",
-                backgroundImage: `url(${e.backdrop})`,
-                backgroundSize: "contain",
-                backgroundRepeat: "no-repeat",
-                backgroundPosition: "center",
-                padding: "20px",
-              }}
-            >
-              <h3>{e.title}</h3>
-            </div>
-          </AppSwiperSlide>
-        ))}
-      </AppSwiper>
+
+      <AppCarouselSection title={"Popular Movies"} data={popularMovies} />
+      <AppCarouselSection title={"Top Rated Movies"} data={topRatedMovies} />
+      <AppCarouselSection title={"Popular Series"} data={upComingMovies} />
+
+      {/* <AppCard data={""}>
+        <AppCard.Header>Hola</AppCard.Header>
+        <AppCard.Body>Hola</AppCard.Body>
+        <AppCard.Footer>Hola</AppCard.Footer>
+      </AppCard> */}
     </div>
   );
 };

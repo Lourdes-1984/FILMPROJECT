@@ -17,10 +17,6 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-}
-.fondo{
   background-image: url(./assets/fondo.jpg);
-  width: 100%;
-  height: auto;
 }
 

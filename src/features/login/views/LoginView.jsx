@@ -21,12 +21,28 @@ const LoginView = () => {
 
   return (
     <div className="fondo">
-      <h1>ReactFilms</h1>
+      <h1
+        style={{
+          color: "#e50914",
+          fontSize: "40px",
+          fontWeight: "bold",
+        }}
+      >
+        REACTFILMX
+      </h1>
 
       <form onSubmit={handleSubmit}>
         <input type="email" name="email" />
         <input type="password" name="password" />
-        <button type="submit">Iniciar Sesión</button>
+        <button
+          style={{
+            backgroundColor: "#e50914",
+            padding: "10px",
+          }}
+          type="submit"
+        >
+          Iniciar Sesión
+        </button>
       </form>
     </div>
   );

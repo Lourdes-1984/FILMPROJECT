@@ -11,7 +11,7 @@ import {
 import useSWR from "swr";
 import AppCarouselSection from "../../../core/components/app_carousel_section/app_carousel_section";
 import AppCard from "../../../core/components/app_card/app_card";
-
+import Logo from "../../../core/components/logo/logo";
 const HomeView = () => {
   const {
     data: popularMovies,
@@ -39,10 +39,25 @@ const HomeView = () => {
 
   return (
     <div>
-      <h1>HOME</h1>
+      <Logo />
 
-      <button onClick={logout}>Cerrar Sesión</button>
-      <AppButton onClick={getUser}>Mostrar alerta</AppButton>
+      <button
+        onClick={logout}
+        style={{
+          backgroundColor: "#e50914",
+          display: "block",
+          color: "white",
+          padding: "12px 20px",
+          width: "10%",
+          // margin: "auto",
+          border: "none",
+          borderRadius: "4px",
+          cursor: " pointer",
+        }}
+      >
+        Cerrar Sesión
+      </button>
+      {/* <AppButton onClick={getUser}>User Logged</AppButton> */}
 
       <AppCarouselSection title={"Popular Movies"} data={popularMovies} />
       <AppCarouselSection title={"Top Rated Movies"} data={topRatedMovies} />

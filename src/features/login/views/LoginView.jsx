@@ -1,5 +1,6 @@
 import React from "react";
 import { useAuth } from "../../../core/auth/hook/use_auth";
+import Logo from "../../../core/components/logo/logo";
 
 const LoginView = () => {
   const { login, isLoggedIn } = useAuth();
@@ -20,30 +21,79 @@ const LoginView = () => {
   };
 
   return (
-    <div className="fondo">
-      <h1
+    <div
+      style={{
+        backgroundImage: "url(./assets/fondo.jpg)",
+      }}
+      className="fondo"
+    >
+      <Logo />
+      <div
         style={{
-          color: "#e50914",
-          fontSize: "40px",
-          fontWeight: "bold",
+          backgroundColor: "rgb(0,0,0,0.75)",
+          borderRadius: "8px",
+          boxSizing: "borderBox",
+          display: "flex",
+          flexdirection: "column",
+          margin: "auto",
+          minHeight: "515px",
+          padding: "20px 0 30PX",
+          width: "35%",
+          height: "50%",
         }}
       >
-        REACTFILMX
-      </h1>
-
-      <form onSubmit={handleSubmit}>
-        <input type="email" name="email" />
-        <input type="password" name="password" />
-        <button
-          style={{
-            backgroundColor: "#e50914",
-            padding: "10px",
-          }}
-          type="submit"
-        >
-          Iniciar Sesión
-        </button>
-      </form>
+        <form onSubmit={handleSubmit}>
+          <h2
+            style={{
+              textAlign: "center",
+            }}
+          >
+            Inicia Sesión
+          </h2>
+          <input
+            type="email"
+            name="email"
+            style={{
+              width: "50%",
+              textAlign: "center",
+              padding: "12px 20px",
+              margin: "0 auto 10px 110px",
+              backgroundColor: "#FFF",
+              border: "1px solid #ccc",
+              borderRadius: "4px",
+              boxSizing: "border-box",
+            }}
+          />
+          <input
+            type="password"
+            name="password"
+            style={{
+              width: "50%",
+              padding: "12px 20px",
+              margin: "0 auto 10px 110px",
+              border: "1px solid #ccc",
+              borderRadius: "4px",
+              boxSizing: "border-box",
+            }}
+          />
+          <button
+            style={{
+              backgroundColor: "#e50914",
+              display: "block",
+              color: "white",
+              padding: "12px 20px",
+              width: "50%",
+              margin: "auto",
+              border: "none",
+              borderRadius: "4px",
+              cursor: " pointer",
+            }}
+            type="submit"
+          >
+            Iniciar Sesión
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

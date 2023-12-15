@@ -12,15 +12,15 @@ const AppCarouselSection = ({ title, data }) => {
       <AppSwiper>
         {data?.map((e, index) => (
           <AppSwiperSlide key={e.width}>
-            <AppCard
-              height="150px"
-              width="300px"
-              backgroundImageSrc={e.backdrop}
-            >
+            <AppCard height="450px" width="300px" backgroundImageSrc={e.poster}>
               <AppCard.Header>
-                <AppTitle size={sizes.sm}>{e.title}</AppTitle>
+                <AppTitle size={sizes.md}>{e.title}</AppTitle>
               </AppCard.Header>
-              <AppCard.Footer>Footer</AppCard.Footer>
+              <AppCard.Footer>
+                <AppTitle size={sizes.sm}>{e.title}</AppTitle>
+
+                {e.description}
+              </AppCard.Footer>
             </AppCard>
           </AppSwiperSlide>
         ))}

@@ -1,6 +1,7 @@
 import React from "react";
 import { useAuth } from "../../../core/auth/hook/use_auth";
 import Logo from "../../../core/components/logo/logo";
+import AppFooter from "../../../core/components/app_footer/app_footer";
 
 const LoginView = () => {
   const { login, isLoggedIn } = useAuth();
@@ -21,59 +22,55 @@ const LoginView = () => {
   };
 
   return (
-    <div
-      style={{
-        backgroundImage: "url(./assets/fondo.jpg)",
-      }}
-      className="fondo"
-    >
+    <div className="fondo">
       <Logo />
       <div
         style={{
           backgroundColor: "rgb(0,0,0,0.75)",
           borderRadius: "8px",
-          boxSizing: "borderBox",
-          display: "flex",
-          flexdirection: "column",
           margin: "auto",
-          minHeight: "515px",
-          padding: "20px 0 30PX",
+          minHeight: "500px",
+          padding: "40px 40px 40px 5px",
           width: "35%",
-          height: "50%",
+          marginBottom: "20px",
         }}
       >
         <form onSubmit={handleSubmit}>
-          <h2
+          <h1
             style={{
               textAlign: "center",
+              color: "white",
+              fontSize: "32px",
             }}
           >
             Inicia Sesión
-          </h2>
+          </h1>
           <input
             type="email"
             name="email"
+            placeholder="Email o número de telefono..."
             style={{
-              width: "50%",
-              textAlign: "center",
+              width: "70%",
+              backgroundColor: "#333333",
+              textAlign: "justify",
               padding: "12px 20px",
-              margin: "0 auto 10px 110px",
-              backgroundColor: "#FFF",
+              margin: "  10px 80px",
               border: "1px solid #ccc",
               borderRadius: "4px",
-              boxSizing: "border-box",
             }}
           />
           <input
             type="password"
             name="password"
+            placeholder="Contraseña..."
             style={{
-              width: "50%",
+              width: "70%",
+              backgroundColor: "#333333",
+              textAlign: "justify",
               padding: "12px 20px",
-              margin: "0 auto 10px 110px",
+              margin: "  20px 80px",
               border: "1px solid #ccc",
               borderRadius: "4px",
-              boxSizing: "border-box",
             }}
           />
           <button
@@ -82,18 +79,33 @@ const LoginView = () => {
               display: "block",
               color: "white",
               padding: "12px 20px",
-              width: "50%",
-              margin: "auto",
+              width: "70%",
+              margin: "  20px 80px",
               border: "none",
               borderRadius: "4px",
               cursor: " pointer",
+              fontSize: "18px",
+              fontWeight: "bold",
             }}
             type="submit"
           >
             Iniciar Sesión
           </button>
+          <div>
+            <label>
+              <input
+                style={{
+                  margin: "  20px 80px",
+                  width: "10%",
+                }}
+                type="checkbox"
+              />{" "}
+              Recuerdame
+            </label>
+          </div>
         </form>
       </div>
+      <AppFooter />
     </div>
   );
 };

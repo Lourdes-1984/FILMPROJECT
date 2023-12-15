@@ -17,6 +17,64 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-   background-image: url(./assets/fondo.jpg); 
+  
+  /*LOGIN */
+}
+.fondo {
+  background-image: url(./assets/fondo.jpg);  
+}
+:placeholder{
+  color: #ffffff;
 }
 
+label{
+  color: #ffffff;
+  font-size: 18px;
+  padding-left: -15px; 
+}
+
+
+/*HOME*/
+.fondo-home{
+  background-color: black; 
+}
+
+/*FOOTER*/
+.container-footer{
+  height: 300px; 
+  background-color: rgb(0,0,0,0.75);
+  padding: 50px 50px;
+}
+
+.titulo-footer{
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+a{
+  text-decoration: none;
+  color: #737373;
+  font-size: 16px;
+}
+.enlaces-foter{
+  display: block;
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
+}
+.btn-footer{
+  background-color: transparent;
+  padding: 12px 26px 12px 50px;
+  color: #ffffff;
+  margin-top: 20px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  margin-left: 40px;
+}
+
+.btn-footer:hover{
+  background-color:#ccc;
+  color: #242424;
+}

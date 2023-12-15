@@ -3,15 +3,18 @@ import React from "react";
 const Logo = () => {
   return (
     <div>
-      <h1
+      <a
+        href=""
         style={{
           color: "#e50914",
-          fontSize: "40px",
+          fontSize: "45px",
           fontWeight: "bold",
+          padding: "10px",
+          // marginTop: "20px",
         }}
       >
-        REACTFILMX
-      </h1>
+        REACTFLIX
+      </a>
     </div>
   );
 };

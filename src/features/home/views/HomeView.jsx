@@ -7,11 +7,13 @@ import {
   getPopularMovies,
   getTopRatedMovies,
   getUpcomingMovies,
+  getPopularTv,
 } from "../services/movies.services";
 import useSWR from "swr";
 import AppCarouselSection from "../../../core/components/app_carousel_section/app_carousel_section";
 import AppCard from "../../../core/components/app_card/app_card";
 import Logo from "../../../core/components/logo/logo";
+import AppFooter from "../../../core/components/app_footer/app_footer";
 const HomeView = () => {
   const {
     data: popularMovies,
@@ -31,6 +33,12 @@ const HomeView = () => {
     isLoading: upComingMoviesIsLoading,
   } = useSWR("getUpcomingMovies", getUpcomingMovies);
 
+  const {
+    data: popularTv,
+    error: popularTvError,
+    isLoading: popularTvIsLoading,
+  } = useSWR("getPopularTv", getPopularTv);
+
   const { logout, isLoggedIn } = useAuth();
 
   const getUser = () => {
@@ -38,36 +46,47 @@ const HomeView = () => {
   };
 
   return (
-    <div>
+    <div className="fondo-home">
       <Logo />
-
-      <button
-        onClick={logout}
+      <div
         style={{
-          backgroundColor: "#e50914",
-          display: "block",
-          color: "white",
-          padding: "12px 20px",
-          width: "10%",
-          // margin: "auto",
-          border: "none",
-          borderRadius: "4px",
-          cursor: " pointer",
+          display: "flex",
+          justifyContent: "flex-end",
         }}
       >
-        Cerrar Sesión
-      </button>
+        <button
+          onClick={logout}
+          style={{
+            backgroundColor: "#e50914",
+            display: "block",
+            color: "white",
+            padding: "12px",
+            width: "15%",
+            margin: "  20px 80px",
+            border: "none",
+            borderRadius: "4px",
+            cursor: " pointer",
+            fontSize: "16px",
+            fontWeight: "bold",
+          }}
+        >
+          Cerrar Sesión
+        </button>
+      </div>
+
       {/* <AppButton onClick={getUser}>User Logged</AppButton> */}
 
       <AppCarouselSection title={"Popular Movies"} data={popularMovies} />
       <AppCarouselSection title={"Top Rated Movies"} data={topRatedMovies} />
-      <AppCarouselSection title={"Popular Series"} data={upComingMovies} />
+      <AppCarouselSection title={"Up Coming Movies"} data={upComingMovies} />
+      <AppCarouselSection title={"Popular TV"} data={popularTv} />
 
       {/* <AppCard data={""}>
         <AppCard.Header>Hola</AppCard.Header>
         <AppCard.Body>Hola</AppCard.Body>
         <AppCard.Footer>Hola</AppCard.Footer>
       </AppCard> */}
+      <AppFooter />
     </div>
   );
 };

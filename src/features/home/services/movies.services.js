@@ -17,3 +17,8 @@ export const getUpcomingMovies = async () => {
 
   return tmdbMoviesTvAdapter(data);
 };
+export const getPopularTv = async () => {
+  const { data } = await tmdb_api.get(tmdb_paths.movies.upcoming);
+
+  return tmdbMoviesTvAdapter(data);
+};

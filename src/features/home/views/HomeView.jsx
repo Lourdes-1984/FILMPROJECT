@@ -8,12 +8,15 @@ import {
   getTopRatedMovies,
   getUpcomingMovies,
   getPopularTv,
+  getTopRatedTv,
+  getAiringTodayTv,
 } from "../services/movies.services";
 import useSWR from "swr";
 import AppCarouselSection from "../../../core/components/app_carousel_section/app_carousel_section";
 import AppCard from "../../../core/components/app_card/app_card";
 import Logo from "../../../core/components/logo/logo";
 import AppFooter from "../../../core/components/app_footer/app_footer";
+import AppNavbar from "../../../core/components/app_navbar/app_navbar";
 const HomeView = () => {
   const {
     data: popularMovies,
@@ -39,6 +42,18 @@ const HomeView = () => {
     isLoading: popularTvIsLoading,
   } = useSWR("getPopularTv", getPopularTv);
 
+  const {
+    data: topRatedTv,
+    error: topRatedTvError,
+    isLoading: topRatedTvIsLoading,
+  } = useSWR("getTopRatedTv", getTopRatedTv);
+
+  const {
+    data: airingTodayTv,
+    error: airingTodayTvError,
+    isLoading: airingTodayTvIsLoading,
+  } = useSWR("getAiringTodayTv", getAiringTodayTv);
+
   const { logout, isLoggedIn } = useAuth();
 
   const getUser = () => {
@@ -54,6 +69,7 @@ const HomeView = () => {
           justifyContent: "flex-end",
         }}
       >
+        <AppNavbar />
         <button
           onClick={logout}
           style={{
@@ -61,7 +77,7 @@ const HomeView = () => {
             display: "block",
             color: "white",
             padding: "12px",
-            width: "15%",
+            width: "10%",
             margin: "  20px 80px",
             border: "none",
             borderRadius: "4px",
@@ -80,6 +96,7 @@ const HomeView = () => {
       <AppCarouselSection title={"Top Rated Movies"} data={topRatedMovies} />
       <AppCarouselSection title={"Up Coming Movies"} data={upComingMovies} />
       <AppCarouselSection title={"Popular TV"} data={popularTv} />
+      <AppCarouselSection title={"Airing Today TV"} data={airingTodayTv} />
 
       {/* <AppCard data={""}>
         <AppCard.Header>Hola</AppCard.Header>

@@ -38,6 +38,12 @@ label{
 .fondo-home{
   background-color: black; 
 }
+.nav ul li{
+  display: inline-block;
+  justify-content: space-between;
+  margin: 10px;
+  margin-inline-start: auto;
+}
 
 /*FOOTER*/
 .container-footer{

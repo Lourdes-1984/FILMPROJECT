@@ -21,7 +21,8 @@
   /*LOGIN */
 }
 .fondo {
-  background-image: url(./assets/fondo.jpg);  
+  /* background-image: url(./assets/fondo.jpg);   */
+  background-image: url(/fondoNetflix.jpg);
 }
 :placeholder{
   color: #ffffff;
@@ -35,6 +36,30 @@ label{
 
 
 /*HOME*/
+.header {
+  width: 100%;
+  padding: 40PX;
+  background-image: url('https://image.tmdb.org/t/p/original/yco6dWR1W3iANUEKxGT0vQRWrJn.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 800px;
+  margin-bottom: 40px;
+}
+.nav-bar{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+  margin-bottom: 40px;
+  padding-bottom: 40px;
+  
+}
+.btn-cerrar-sesion:hover{
+  background-color: #242424;
+}
+.btn-repro .btn-repro-hover:hover{
+  background-color: red;
+}
 .fondo-home{
   background-color: black; 
 }
@@ -42,8 +67,10 @@ label{
   display: inline-block;
   justify-content: space-between;
   margin: 10px;
-  margin-inline-start: auto;
+  
 }
+
+
 
 /*FOOTER*/
 .container-footer{

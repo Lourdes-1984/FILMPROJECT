@@ -14,6 +14,7 @@ const Footer = ({ children, ...props }) => {
         opacity: isHovered ? "1" : "0",
         transform: isHovered ? "translateY(0)" : "translateY(10px)",
         transition: "all 0.2s ease-in-out",
+
         ...props.style,
       }}
     >

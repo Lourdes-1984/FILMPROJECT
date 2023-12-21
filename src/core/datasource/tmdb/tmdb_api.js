@@ -13,6 +13,7 @@ export const tmdb_paths = {
     popular: "/movie/popular",
     top_rated: "/movie/top_rated",
     upcoming: "/movie/upcoming",
+    trending: "/trending/movie/week",
   },
   tv: {
     popular: "/tv/popular",

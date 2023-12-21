@@ -1,6 +1,12 @@
 import { tmdb_api, tmdb_paths } from "../../../core/datasource/tmdb/tmdb_api";
 import { tmdbMoviesTvAdapter } from "./adapters/tmdb.adapters";
 
+export const getTrendingMovies = async () => {
+  const { data } = await tmdb_api.get(tmdb_paths.movies.trending);
+  console.log("data", data);
+  return tmdbMoviesTvAdapter(data);
+};
+
 export const getPopularMovies = async () => {
   const { data } = await tmdb_api.get(tmdb_paths.movies.popular);
   console.log("data", data);

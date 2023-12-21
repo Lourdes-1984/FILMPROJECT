@@ -4,7 +4,7 @@ const Logo = () => {
   return (
     <div>
       <a
-        href=""
+        href="/login"
         style={{
           color: "#e50914",
           fontSize: "45px",

@@ -1,4 +1,3 @@
-import React from "react";
 import { useAuth } from "../../../core/auth/hook/use_auth";
 import Logo from "../../../core/components/logo/logo";
 import AppFooter from "../../../core/components/app_footer/app_footer";

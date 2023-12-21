@@ -38,6 +38,7 @@ const AppCard = ({
           borderStyle: "solid",
           overflow: "hidden",
           cursor: "pointer",
+          color: "#ceacsc",
 
           ...props.style,
         }}

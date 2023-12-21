@@ -9,18 +9,11 @@ registerSwiper();
 
 const App = () => {
   return (
-<<<<<<< HEAD
     <>
       <RootProvider>
         <RouterProvider router={appRouter} />
       </RootProvider>
     </>
-=======
-    <div>
-      <h1>APP PARA PELIS </h1>
-      <h2>PRODUCCION</h2>
-    </div>
->>>>>>> origin/PROD
   );
 };
 
